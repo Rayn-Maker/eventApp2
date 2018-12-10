@@ -262,14 +262,190 @@
                     <view key="view" contentMode="scaleToFill" id="mRg-wj-RgD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EventMe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPM-G9-djc">
+                                <rect key="frame" x="0.0" y="33" width="375" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="375" id="ZGD-pW-07U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t47-SG-qDT">
+                                <rect key="frame" x="0.0" y="129" width="375" height="66"/>
+                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="5Ij-KQ-KD4"/>
+                                    <constraint firstAttribute="width" constant="375" id="wY4-fb-hpb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="view offers">
+                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28C-t9-7LQ">
+                                <rect key="frame" x="0.0" y="230" width="375" height="66"/>
+                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="Dyp-FN-hFZ"/>
+                                    <constraint firstAttribute="width" constant="375" id="X5c-ps-xb2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="edit portfolie">
+                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdd-zY-LDK">
+                                <rect key="frame" x="0.0" y="87" width="375" height="531"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Src-Q3-PMy">
+                                        <rect key="frame" x="0.0" y="232" width="375" height="66"/>
+                                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="375" id="2nm-Zf-iHZ"/>
+                                            <constraint firstAttribute="height" constant="66" id="hxd-kk-96q"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="setup portfolio">
+                                            <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="wcI-zp-3Oh" kind="show" id="G8A-sI-g0J"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Src-Q3-PMy" firstAttribute="top" secondItem="Rdd-zY-LDK" secondAttribute="top" constant="232" id="bd0-nz-AQy"/>
+                                    <constraint firstItem="Src-Q3-PMy" firstAttribute="leading" secondItem="Rdd-zY-LDK" secondAttribute="leading" id="iRb-wa-mmO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Jn1-gn-ofc" firstAttribute="trailing" secondItem="iPM-G9-djc" secondAttribute="trailing" id="2be-Gl-5LK"/>
+                            <constraint firstItem="Rdd-zY-LDK" firstAttribute="trailing" secondItem="Jn1-gn-ofc" secondAttribute="trailing" id="Dq0-JL-XCI"/>
+                            <constraint firstItem="iPM-G9-djc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jn1-gn-ofc" secondAttribute="leading" id="Ftd-PG-I73"/>
+                            <constraint firstItem="28C-t9-7LQ" firstAttribute="leading" secondItem="Jn1-gn-ofc" secondAttribute="leading" id="OrJ-iX-TCn"/>
+                            <constraint firstItem="t47-SG-qDT" firstAttribute="leading" secondItem="Jn1-gn-ofc" secondAttribute="leading" id="SjC-7C-67s"/>
+                            <constraint firstItem="t47-SG-qDT" firstAttribute="top" secondItem="iPM-G9-djc" secondAttribute="bottom" constant="42" id="Tfy-GN-zoL"/>
+                            <constraint firstItem="Rdd-zY-LDK" firstAttribute="bottom" secondItem="Jn1-gn-ofc" secondAttribute="bottom" id="UwC-ur-RAF"/>
+                            <constraint firstItem="Rdd-zY-LDK" firstAttribute="top" secondItem="iPM-G9-djc" secondAttribute="bottom" id="ccj-GT-9BR"/>
+                            <constraint firstItem="Jn1-gn-ofc" firstAttribute="bottom" secondItem="iPM-G9-djc" secondAttribute="bottom" constant="531" id="gd7-ZJ-LsL"/>
+                            <constraint firstItem="iPM-G9-djc" firstAttribute="top" secondItem="Jn1-gn-ofc" secondAttribute="top" constant="13" id="lsc-rc-uzf"/>
+                            <constraint firstItem="Rdd-zY-LDK" firstAttribute="leading" secondItem="Jn1-gn-ofc" secondAttribute="leading" id="mb8-aM-v7h"/>
+                            <constraint firstItem="28C-t9-7LQ" firstAttribute="top" secondItem="t47-SG-qDT" secondAttribute="bottom" constant="35" id="voa-99-Ia0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Jn1-gn-ofc"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Portfolio" id="rPA-8r-0jl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBh-3H-WQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4156" y="1551"/>
+            <point key="canvasLocation" x="4156" y="1549.4752623688157"/>
+        </scene>
+        <!--Set Up PortfolioVC-->
+        <scene sceneID="W3Y-6E-4rc">
+            <objects>
+                <viewController id="wcI-zp-3Oh" customClass="SetUpPortfolioVC" customModule="eventApp2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cAG-lO-CfN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EventMe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQA-A8-OVT">
+                                <rect key="frame" x="0.0" y="38" width="375" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="375" id="HJf-PK-7Jw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Bio: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r5m-Hu-b5l">
+                                <rect key="frame" x="0.0" y="411" width="375" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZV-du-VK2">
+                                <rect key="frame" x="16" y="243" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <state key="normal" title="Add services">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPV-yj-4hU">
+                                <rect key="frame" x="0.0" y="281" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <state key="normal" title="Add services">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dcc-UX-MFc">
+                                <rect key="frame" x="16" y="310" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <state key="normal" title="Add services">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ijg-ZE-xla">
+                                <rect key="frame" x="16" y="113" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="work email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DUg-2A-6Cn">
+                                <rect key="frame" x="16" y="163" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="handle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Azz-gL-AX2">
+                                <rect key="frame" x="196" y="163" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ca2-Qr-8X7">
+                                <rect key="frame" x="196" y="113" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7a-Lp-PlU">
+                                <rect key="frame" x="25" y="348" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <state key="normal" title="Add services">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94836735604378175" green="0.94836735604378175" blue="0.94836735604378175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="aQA-A8-OVT" firstAttribute="top" secondItem="R0k-uO-YTO" secondAttribute="top" constant="18" id="0rC-YF-w5D"/>
+                            <constraint firstItem="R0k-uO-YTO" firstAttribute="bottom" secondItem="aQA-A8-OVT" secondAttribute="bottom" constant="575" id="2uw-NU-3eo"/>
+                            <constraint firstItem="aQA-A8-OVT" firstAttribute="leading" secondItem="R0k-uO-YTO" secondAttribute="leading" id="Vjl-h8-tUs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="R0k-uO-YTO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q2T-Gk-IKN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4941.6000000000004" y="1548.5757121439281"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="vX8-Ud-lyJ">
