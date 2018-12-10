@@ -21,6 +21,38 @@ class User {
     var profilePic: String!
     var profilePicData: Data?
     var profilePicUrl: URL?
+    
+    init() {
+        
+    }
+    
+    init(snapShot:DataSnapshot) {
+        let resp = snapShot.value as! [String:AnyObject]
+        self.firstName = resp["fName"] as? String
+        self.lastName = resp["lName"] as? String
+        self.fullName = resp["full_name"] as? String
+        self.email = resp["email"] as? String
+        self.phoneNumber = resp["phoneNumber"] as? Int
+//        if let upc =  resp["pictureUrl"] as? String {
+//            self.profilePic = upc
+//        }
+    }
+//
+//    func downloadPic() {
+//        if let imageDownloadURL = self.profilePic {
+//            let imageStorageRef = Storage.storage().reference(forURL: imageDownloadURL)
+//            imageStorageRef.getData(maxSize: 2 * 1024 * 1024) { [weak self] (data, error) in
+//                if let error = error {
+//                    print("******** \(error)")
+//                } else {
+//                    if let imageData = data {
+//                         self?.profilePicData = imageData
+//                    }
+//                }
+//
+//            }
+//        }
+//    }
 }
  
 class Post {
@@ -35,12 +67,17 @@ class Post {
     var timeStampDate: Date!
     var timeSince: String!
     var picUrl: String!
+    var authId: String!
 
     var userStorage: StorageReference!
     private var image: UIImage!
     
     let storage = Storage.storage().reference(forURL: "gs://eventapp2-225e3.appspot.com")
     let ref = Database.database().reference()
+    
+    init() {
+        
+    }
     
     init(image: UIImage, caption:String, authorEmail:String, authorFullName:String, authorPicUrl:String) {
         self.image = image
@@ -72,6 +109,9 @@ class Post {
         }
         if let auEmal = y["caption"] as? String {
             self.caption = auEmal
+        } //authId
+        if let auEmal = y["authId"] as? String {
+            self.authId = auEmal
         }
 
     }
@@ -96,6 +136,7 @@ class Post {
                 }
                 if let url = url {
                     let params: [String:Any] = ["authorEmail": Auth.auth().currentUser?.email ?? "",
+                                                "authId":Auth.auth().currentUser?.uid,
                                                 "url":url.absoluteString,
                                                 "authorPicUrl":self.authorPicUrl,
                                                 "authorFullName":self.authorFullName!,
@@ -112,36 +153,48 @@ class Post {
     }
 }
 
-func getTimeSince(date:Date) -> String {
-    var calendar = NSCalendar.autoupdatingCurrent
-    calendar.timeZone = NSTimeZone.system
-    let components = calendar.dateComponents([ .month, .day, .minute, .hour, .second ], from: date, to: Date())
-    //        let months = components.month
-    let days = components.day
-    let hours = components.hour
-    let minutes = components.minute
-    let secs = components.second
-    var time:Int = days!; var measur:String = "Days ago"
+class commonFunctions {
+    func editImage(image:UIImageView) -> UIImageView {
+        image.layer.borderWidth = 1
+        image.layer.masksToBounds = false
+        image.layer.borderColor = UIColor.black.cgColor
+        image.layer.cornerRadius = image.frame.height/2
+        image.clipsToBounds = true
+        
+        return image
+    }
     
-    if days == 1 {
-        measur = "Day ago"
-    } else if days! < 1 {
-        measur = "hours ago"
-        time = hours!
-        if hours == 1 {
-            measur = "hour ago"
-        } else if hours! < 1 {
-            measur = "minutes ago"
-            time = minutes!
-            if minutes == 1 {
-                measur = "minute ago"
-            } else if minutes! < 1 {
-                measur = "seconds ago"
-                time = secs!
+    func getTimeSince(date:Date) -> String {
+        var calendar = NSCalendar.autoupdatingCurrent
+        calendar.timeZone = NSTimeZone.system
+        let components = calendar.dateComponents([ .month, .day, .minute, .hour, .second ], from: date, to: Date())
+        //        let months = components.month
+        let days = components.day
+        let hours = components.hour
+        let minutes = components.minute
+        let secs = components.second
+        var time:Int = days!; var measur:String = "Days ago"
+        
+        if days == 1 {
+            measur = "Day ago"
+        } else if days! < 1 {
+            measur = "hours ago"
+            time = hours!
+            if hours == 1 {
+                measur = "hour ago"
+            } else if hours! < 1 {
+                measur = "minutes ago"
+                time = minutes!
+                if minutes == 1 {
+                    measur = "minute ago"
+                } else if minutes! < 1 {
+                    measur = "seconds ago"
+                    time = secs!
+                }
             }
         }
+        return "\(time)\(measur)"
     }
-    return "\(time)\(measur)"
 }
 
 extension UIImageView {

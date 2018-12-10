@@ -14,19 +14,22 @@ import FirebaseAuth
 class PostsVC: UIViewController {
 
     
+    @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var postsTable: UITableView!
     
     var postArr = [Post]()
     let ref = Database.database().reference()
-    var handle: DatabaseHandle?
+    
     
     override func viewDidLoad() {
-        super.viewDidLoad() 
+        super.viewDidLoad()
         self.postsTable.rowHeight = 360.0
-        fetchStudent()
+        fetchPosts()
+        navBar.title = "Event Me"
+        
     }
     
-    func fetchStudent() {
+    func fetchPosts() {
         Database.database().reference().child("Posts").observe(.childAdded) { (snapshot) in
             let newPost = Post(snapShot: snapshot)
             DispatchQueue.main.async {
@@ -35,13 +38,6 @@ class PostsVC: UIViewController {
                 self.postsTable.insertRows(at: [indexPath], with: .top)
             }
         }
-//        handle = ref.child("Posts").queryOrderedByKey().observe( .value, with: { response in
-//            if response.value is NSNull {
-//                /// dont do anything
-//            } else {
-// 
-//            }
-//        })
     }
 
 }
@@ -51,6 +47,7 @@ extension PostsVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postsCell", for: indexPath) as! TableViewCell
         let post = self.postArr[indexPath.row]
+        
         cell.post = post
         return cell
     }
@@ -65,14 +62,16 @@ extension PostsVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // segueToClassRoom
-//        performSegue(withIdentifier: "segueToClassRoom", sender: nil)
+        performSegue(withIdentifier: "cellProfile", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToClassRoom"{
-//            let vc = segue.destination as? MyClassRoomVC
-//            let indexPath = myClassesTableView.indexPathForSelectedRow
-//            vc?.fetchObject = myClassesArr[(indexPath?.row)!]
+        if segue.identifier == "cellProfile"{
+            let vc = segue.destination as? PostProfilesVC
+            let indexPath = postsTable.indexPathForSelectedRow
+            let cell = postsTable.cellForRow(at: indexPath!) as! TableViewCell
+            vc?.post = postArr[(indexPath?.row)!]
+            vc?.authProfPic = cell.postAutPicData
         }
     }
 }

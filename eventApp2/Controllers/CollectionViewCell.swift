@@ -1,34 +1,32 @@
 //
-//  TableViewCell.swift
+//  CollectionViewCell.swift
 //  eventApp2
 //
-//  Created by Radiance Okuzor on 12/7/18.
+//  Created by Radiance Okuzor on 12/8/18.
 //  Copyright © 2018 RayCo. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class TableViewCell: UITableViewCell {
-
-    @IBOutlet weak var postAutPic: UIImageView!
+class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var postImag: UIImageView!
-    @IBOutlet weak var postMenuBtn: UIButton!
-    @IBOutlet weak var postAdd: UIButton!
-    @IBOutlet weak var postText: UILabel!
+    @IBOutlet weak var myPostImag: UIImageView!
     
     var postAutPicData: Data!
     var post: Post! {
         didSet {
-            self.postText.numberOfLines = 0
             self.updateUI()
         }
     }
     
+    var post2: Post! {
+        didSet {
+            self.updateUI2()
+        }
+    }
     
     func updateUI() {
-        self.postText.text = post.caption
-        
         if let imageDownloadURL = post.picUrl {
             let imageStorageRef = Storage.storage().reference(forURL: imageDownloadURL)
             imageStorageRef.getData(maxSize: 2 * 1024 * 1024) { [weak self] (data, error) in
@@ -45,7 +43,10 @@ class TableViewCell: UITableViewCell {
                 
             }
         }
-        if let imageDownloadURL = post.authorPicUrl {
+    }
+    
+    func updateUI2() {
+        if let imageDownloadURL = post2.picUrl {
             let imageStorageRef = Storage.storage().reference(forURL: imageDownloadURL)
             imageStorageRef.getData(maxSize: 2 * 1024 * 1024) { [weak self] (data, error) in
                 if let error = error {
@@ -54,9 +55,7 @@ class TableViewCell: UITableViewCell {
                     if let imageData = data {
                         let image = UIImage(data: imageData)
                         DispatchQueue.main.async {
-                            self?.postAutPic.image = image
-                            self?.postAutPicData = data 
-                            self?.editImage(image: self!.postAutPic)
+                            self?.myPostImag.image = image
                         }
                     }
                 }
@@ -64,13 +63,4 @@ class TableViewCell: UITableViewCell {
             }
         }
     }
-    
-    func editImage(image:UIImageView){
-        image.layer.borderWidth = 1
-        image.layer.masksToBounds = false
-        image.layer.borderColor = UIColor.black.cgColor
-        image.layer.cornerRadius = image.frame.height/2
-        image.clipsToBounds = true
-    }
- 
 }

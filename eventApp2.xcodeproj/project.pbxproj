@@ -17,6 +17,8 @@
 		688E6B3221BB2C3A00FD5B25 /* PostsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688E6B3121BB2C3A00FD5B25 /* PostsVC.swift */; };
 		688E6B3421BB2C5200FD5B25 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688E6B3321BB2C5200FD5B25 /* CreatePostVC.swift */; };
 		688E6B3621BB652B00FD5B25 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688E6B3521BB652B00FD5B25 /* TableViewCell.swift */; };
+		688E6B3821BBB4B600FD5B25 /* PostProfilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688E6B3721BBB4B500FD5B25 /* PostProfilesVC.swift */; };
+		688E6B3A21BBCB2D00FD5B25 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688E6B3921BBCB2D00FD5B25 /* CollectionViewCell.swift */; };
 		689C3DD721BA49DA00A6C81A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689C3DD621BA49DA00A6C81A /* AppDelegate.swift */; };
 		689C3DDC21BA49DA00A6C81A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 689C3DDA21BA49DA00A6C81A /* Main.storyboard */; };
 		689C3DDF21BA49DA00A6C81A /* eventApp2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 689C3DDD21BA49DA00A6C81A /* eventApp2.xcdatamodeld */; };
@@ -39,6 +41,8 @@
 		688E6B3121BB2C3A00FD5B25 /* PostsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsVC.swift; sourceTree = "<group>"; };
 		688E6B3321BB2C5200FD5B25 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		688E6B3521BB652B00FD5B25 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		688E6B3721BBB4B500FD5B25 /* PostProfilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProfilesVC.swift; sourceTree = "<group>"; };
+		688E6B3921BBCB2D00FD5B25 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		689C3DD321BA49DA00A6C81A /* eventApp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eventApp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		689C3DD621BA49DA00A6C81A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		689C3DDB21BA49DA00A6C81A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 				688E6B2B21BB2B3400FD5B25 /* ProfileVC.swift */,
 				688E6B2121BB1E8900FD5B25 /* EditProfileVC.swift */,
 				688E6B3121BB2C3A00FD5B25 /* PostsVC.swift */,
+				688E6B3721BBB4B500FD5B25 /* PostProfilesVC.swift */,
 				688E6B3321BB2C5200FD5B25 /* CreatePostVC.swift */,
 			);
 			path = Views;
@@ -88,6 +93,7 @@
 		688E6B2D21BB2B8200FD5B25 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				688E6B3921BBCB2D00FD5B25 /* CollectionViewCell.swift */,
 				688E6B3521BB652B00FD5B25 /* TableViewCell.swift */,
 			);
 			path = Controllers;
@@ -313,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				688E6B3821BBB4B600FD5B25 /* PostProfilesVC.swift in Sources */,
 				689C3DDF21BA49DA00A6C81A /* eventApp2.xcdatamodeld in Sources */,
 				689C3DD721BA49DA00A6C81A /* AppDelegate.swift in Sources */,
 				688E6B2A21BB28FA00FD5B25 /* CreateAccVC.swift in Sources */,
@@ -322,6 +329,7 @@
 				688E6B2221BB1E8900FD5B25 /* EditProfileVC.swift in Sources */,
 				688E6B3421BB2C5200FD5B25 /* CreatePostVC.swift in Sources */,
 				688E6B2421BB1FE700FD5B25 /* LaunchTabBarVC.swift in Sources */,
+				688E6B3A21BBCB2D00FD5B25 /* CollectionViewCell.swift in Sources */,
 				688E6B3621BB652B00FD5B25 /* TableViewCell.swift in Sources */,
 				688E6B3221BB2C3A00FD5B25 /* PostsVC.swift in Sources */,
 				688E6B1F21BB1D8C00FD5B25 /* QuickLoginVC.swift in Sources */,

@@ -14,7 +14,7 @@ import FirebaseStorage
 class ProfileVC: UIViewController {
     
     @IBOutlet weak var navBar: UINavigationItem!
-    @IBOutlet weak var fullName: UITextField!
+    @IBOutlet weak var collectionView:UICollectionView!
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var bgProfilePic: UIImageView!
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
@@ -23,6 +23,7 @@ class ProfileVC: UIViewController {
     var ref: DatabaseReference!
     var userInfo = [String]()
     var user = User()
+    var postArr = [Post]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +40,7 @@ class ProfileVC: UIViewController {
             profilePic.image = UIImage(data: pictureDat)
             bgProfilePic.image = UIImage(data: pictureDat)
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        //        if let pictureDat = UserDefaults.standard.object(forKey: "pictureData") as? Data {
-        //            profilePic.image = UIImage(data: pictureDat)
-        //        }
-        fetchUSer()
+        fetchPosts()
     }
     
     var storageRef: Storage {
@@ -77,12 +72,20 @@ class ProfileVC: UIViewController {
                     UserDefaults.standard.set(upc, forKey: "profilePicURL")
                     UserDefaults.standard.set(self.user.fullName, forKey: "fullName")
                 }
-                
-                
-                
                 self.navBar.title = self.user.firstName
             }
         })
+    }
+    
+    func fetchPosts() {
+        Database.database().reference().child("Users").child((Auth.auth().currentUser?.uid)!).child("MyPosts").observe(.childAdded) { (snapshot) in
+            let newPost = Post(snapShot: snapshot)
+            DispatchQueue.main.async {
+                self.postArr.insert(newPost, at: 0)
+                let indexPath = IndexPath(row: 0, section: 0)
+                self.collectionView.insertItems(at: [indexPath])
+            }
+        }
     }
     
     func downloadImage(url:String) -> Data {
@@ -104,4 +107,26 @@ class ProfileVC: UIViewController {
         return datas
     }
 
+}
+
+extension ProfileVC: UICollectionViewDelegate, UICollectionViewDataSource  {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return postArr.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myPostCollectionPostsCell", for: indexPath) as! CollectionViewCell
+        let post = self.postArr[indexPath.row]
+        cell.post2 = post
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
 }
