@@ -21,7 +21,7 @@ class PostProfilesVC: UIViewController {
     
     var post = Post()
     let ref = Database.database().reference()
-    let commonFuncs = commonFunctions()
+    let commonFuncs = CommonFunctions()
     var authProfPic = Data()
     var phoneNumber: Int!
     var email: String!

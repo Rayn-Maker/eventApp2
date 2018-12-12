@@ -21,6 +21,7 @@ class User {
     var profilePic: String!
     var profilePicData: Data?
     var profilePicUrl: URL?
+    var bio: String!
     
     init() {
         
@@ -33,26 +34,46 @@ class User {
         self.fullName = resp["full_name"] as? String
         self.email = resp["email"] as? String
         self.phoneNumber = resp["phoneNumber"] as? Int
-//        if let upc =  resp["pictureUrl"] as? String {
-//            self.profilePic = upc
-//        }
     }
-//
-//    func downloadPic() {
-//        if let imageDownloadURL = self.profilePic {
-//            let imageStorageRef = Storage.storage().reference(forURL: imageDownloadURL)
-//            imageStorageRef.getData(maxSize: 2 * 1024 * 1024) { [weak self] (data, error) in
-//                if let error = error {
-//                    print("******** \(error)")
-//                } else {
-//                    if let imageData = data {
-//                         self?.profilePicData = imageData
-//                    }
-//                }
-//
-//            }
-//        }
-//    }
+}
+
+struct Service {
+    var name: String!
+    var id: String!
+    var price: Int?
+    var levExp: String?
+    var picAr = [Data]()
+}
+
+class Worker {
+    var firstName: String!
+    var lastName: String!
+    var fullName: String!
+    var wrkEmail: String!
+    var wrkPhnNmbr: Int!
+    var uid: String!
+    var profilePic: String!
+    var profilePicData: Data?
+    var profilePicUrl: URL?
+    var srvcs = [Service]()
+    var bio: String!
+    var bsnAdrs: String!
+    var yrsWrkng: String!
+    var wbstLnk: String!
+    var image: UIImage?
+    
+    init() {
+        
+    }
+    
+    init(snapShot:DataSnapshot) {
+//        let resp = snapShot.value as! [String:AnyObject]
+//        self.firstName = resp["fName"] as? String
+//        self.lastName = resp["lName"] as? String
+//        self.fullName = resp["full_name"] as? String
+//        self.email = resp["email"] as? String
+//        self.phoneNumber = resp["phoneNumber"] as? Int
+    }
 }
  
 class Post {
@@ -153,7 +174,7 @@ class Post {
     }
 }
 
-class commonFunctions {
+class CommonFunctions {
     func editImage(image:UIImageView) -> UIImageView {
         image.layer.borderWidth = 1
         image.layer.masksToBounds = false
